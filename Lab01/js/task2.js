@@ -9,13 +9,13 @@ var TextBox = React.createClass({
     handleSearch: function(event) {
         var text = event.target.value;
 
-        console.log(this.state.displayedText);
-        if (text === null || text.trim() === '')
-    		text = 'Stranger';
+        //if (text === null || text.trim() === '')
+    		//text = 'Stranger';
+        //var pattern = 'Hello, '
+        text === null || text.trim() === '' ? text = 'Hello, Stranger!' : text = 'Hello, ' + text + '!';
 
         this.setState({
-
-            displayedText: 'Hello, ' + text + '!'
+            displayedText: text
         });
     },
 

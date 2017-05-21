@@ -7,11 +7,12 @@ var Timer = React.createClass({
     },
 
     componentDidMount: function() {
-        this.timer = setInterval(this.tick, 1000);
+        this.timer = setInterval(this.tick, 10);
     },
 
     tick: function() {
-        this.setState({ seconds: this.state.seconds + 1 });
+        var second = this.state.seconds + 1 / 100;
+        this.setState({ seconds: second });
     },
 
     componentWillUnmount: function() {
@@ -27,7 +28,7 @@ var Timer = React.createClass({
         this.setState({ seconds: 0 });
         clearInterval(this.timer);
 
-        this.timer = setInterval(this.tick, 1000);
+        this.timer = setInterval(this.tick, 10);
     },
 
     handleReset: function(event) {
@@ -40,13 +41,13 @@ var Timer = React.createClass({
         this.setState({ seconds: this.state.pausedSeconds });
         clearInterval(this.timer);
 
-        this.timer = setInterval(this.tick, 1000);
+        this.timer = setInterval(this.tick, 10);
     },
 
     render: function() {
         return (
             <div className="row">
-                <h4> Уже прошло {this.state.seconds} секунд </h4>
+                <h4> Уже прошло {this.state.seconds.toFixed(2)} секунд </h4>
                 <button className="btn btn-primary" onClick={this.handlePause}>Pause</button>
                 <button className="btn btn-warning" onClick={this.handleStart}>Start</button>
                 <button className="btn btn-danger" onClick={this.handleReset}>Reset</button>

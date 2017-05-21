@@ -91,38 +91,32 @@ body {
     outline: 0;
 }
 
+.tag {
+    margin-top: 10px;
+    font-size: 11px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.8);
+    color: black;
+    border-radius: 25%;
+    padding: 2px;
+    margin-right: 5px;
+}
+
+.tag:hover {
+    background: rgba(255,255,255,.9);
+        -webkit-transition: background 100ms linear;
+    -ms-transition: background 100ms linear;
+    transition: background 100ms linear;
+}
+
 .add-button {
-    -webkit-align-self: flex-end;
-        -ms-flex-item-align: end;
-            align-self: flex-end;
-    width: 100px;
-    background-color:#44c767;
-    border-radius:28px;
-    border:1px solid #18ab29;
-    cursor:pointer;
-    color:#ffffff;
-    font-size:14px;
-    padding:8px 8px;
-    text-transform: uppercase;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #2f6627;
-}
-
-.add-button:hover {
-    background-color:#5cbf2a;
-}
-
-.add-button:active {
-    position:relative;
-    top:1px;
-}
-
-.add-button:focus {
-    outline: 0;
+    margin: 5px;
+    width: 100%;
 }
 
 .notes-grid {
     margin: 0 auto;
+    width: 100%;
 }
 
 .notes-app {
@@ -135,4 +129,61 @@ body {
     font-weight: 500;
     color: grey;
     text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+}
+
+.note-editor-bot-dock {
+}
+
+.color-picker-panel {
+}
+
+.color-picker-item {
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.13);
+    opacity: .2;
+}
+
+.color-picker-item:hover  {
+    box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 2px 4px rgba(0,0,0,0.23);
+}
+
+.red {
+    background: rgba(255,0,0,1);
+}
+
+.yellow {
+    background: rgba(255,224,0,1);
+}
+
+.blue {
+    background: rgba(0,0,255,1);
+}
+
+.light-blue {
+    background: rgba(0,204,255,1);
+}
+
+.green {
+    background: rgba(0,255,0,1);
+}
+
+.purple {
+    background: rgba(102,0,255,1);
+}
+
+.pink {
+    background: rgba(255,153,255,1);
+}
+
+#selected {
+    opacity: 1;
+    box-shadow: 0 0 4pt 1pt rgba(0,0,0,.15);
+    -webkit-transition: opacity 100ms linear;
+    -ms-transition: opacity 100ms linear;
+    transition: opacity 100ms linear;
 }
