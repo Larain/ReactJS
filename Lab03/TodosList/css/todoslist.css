@@ -1,0 +1,220 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-weight: 300;
+    background-color: #eaeaea;
+}
+
+#mount-point {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.note {
+    position: relative;
+    width: 200px;
+    height: auto;
+    min-height: 40px;
+    float: left;
+    background-color: yellow;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    padding: 10px;
+    margin-bottom: 10px;
+    -webkit-transition: box-shadow .3s;
+    -ms-transition: box-shadow .3s;
+    -o-transition: box-shadow .3s;
+    transition: box-shadow .3s;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.note:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.delete-note {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    display: none;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+.note:hover .delete-note {
+    display: block;
+}
+
+.note-editor {
+    width: 100%;
+    max-width: 600px;
+    padding: 16px;
+    margin: 16px auto;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 2px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.textarea {
+    width: 100%;
+    resize: none;
+    margin: 5px;
+    font-size: 14px;
+    border: none;
+    font-weight: 300;
+}
+
+.textarea:focus {
+    outline: 0;
+}
+
+.grid-header {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+    .grid-header .btn {
+        height: 42px;
+    }
+
+.tag {
+    margin-top: 10px;
+    font-size: 11px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.8);
+    color: black;
+    border-radius: 25%;
+    padding: 2px;
+    margin-right: 5px;
+}
+
+.tag:hover {
+    background: rgba(255,255,255,.9);
+    -webkit-transition: background 100ms linear;
+    -ms-transition: background 100ms linear;
+    transition: background 100ms linear;
+}
+
+.add-button {
+    margin: 5px;
+    width: 100%;
+}
+
+.notes-grid {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.notes-app {
+    max-width: 960px;
+    width: 100%;
+}
+
+.app-header {
+    text-align: center;
+    font-weight: 500;
+    color: grey;
+    text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+}
+
+.color-picker-item {
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.13);
+    opacity: .2;
+}
+
+.color-picker-item:hover {
+    box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 2px 4px rgba(0,0,0,0.23);
+}
+
+.red {
+    background: rgba(255,0,0,1);
+}
+
+.yellow {
+    background: rgba(255,224,0,1);
+}
+
+.blue {
+    background: rgba(0,0,255,1);
+}
+
+.light-blue {
+    background: rgba(0,204,255,1);
+}
+
+.green {
+    background: rgba(0,255,0,1);
+}
+
+.purple {
+    background: rgba(102,0,255,1);
+}
+
+.pink {
+    background: rgba(255,153,255,1);
+}
+
+#selected {
+    opacity: 1;
+    box-shadow: 0 0 4pt 1pt rgba(0,0,0,.15);
+    -webkit-transition: opacity 100ms linear;
+    -ms-transition: opacity 100ms linear;
+    transition: opacity 100ms linear;
+}
+
+.checkbox {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.todo-text {
+    color: white;
+    outline: unset;
+    background: #00ccff;
+    border: none;
+    box-shadow: none;
+}
+
+.todo-text:focus {
+    outline: 0;
+    box-shadow: none;
+}
