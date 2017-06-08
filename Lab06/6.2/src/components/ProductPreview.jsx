@@ -1,13 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './MessagePreview.less';
+import './ProductPreview.less';
 
-const MessagePreview = React.createClass({
+const ProductPreview = React.createClass({
     render() {
         const { title, author, selected, price, onClick } = this.props;
 
-        const classes = classNames('MessagePreview', { selected });
+        const classes = classNames('product-preview', { selected });
 
         return (
             <div className={classes} onClick={onClick}>
@@ -26,4 +26,4 @@ const MessagePreview = React.createClass({
     }
 });
 
-export default MessagePreview;
+export default ProductPreview;

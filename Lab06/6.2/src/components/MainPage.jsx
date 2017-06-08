@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import MessagePreview from './MessagePreview.jsx';
+import Product from './Product.jsx';
 
-import articles1 from '../articles.json';
+import products from '../products.json';
 
-import './InboxPage.less';
+import './ProductList.less';
 
 const MainPage = React.createClass({
     render() {

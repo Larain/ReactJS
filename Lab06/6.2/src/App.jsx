@@ -12,10 +12,10 @@ const App = React.createClass({
                         <Link className='menu-item-link' to='/main/'>Main</Link>
                     </div>
                     <div className='menu-item'>
-                        <Link className='menu-item-link' to='/goods/'>Products</Link>
+                        <Link className='menu-item-link' to='/products/'>Products</Link>
                     </div>
                     <div className='menu-item'>
-                        <Link className='menu-item-link' to='/Cart/'>Cart</Link>
+                        <Link className='menu-item-link' to='/cart/'>Cart</Link>
                     </div>
             </div>
 

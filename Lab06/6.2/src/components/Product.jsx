@@ -1,16 +1,15 @@
 import React from 'react';
 
-//noinspection JSUnresolvedVariable
-import articles from '../articles.json';
+import products from '../products.json';
 
-import './message.less';
+import './Product.less';
 
-const article = React.createClass({
+const Product = React.createClass({
     getInitialState() {
         const { id } = this.props.params;
 
         return {
-            article: articles.find(article => article.id === id)
+            product: products.find(product => product.id === id)
         };
     },
 
@@ -18,39 +17,41 @@ const article = React.createClass({
         var localProducts = JSON.parse(localStorage.getItem('products'));
         if (localProducts) {
             var newProducts = localProducts.slice();
-            newProducts.push(this.state.article.id);
+            newProducts.push(this.state.product.id);
             localProducts = newProducts;
             console.log(localProducts);}
-        else localProducts = [this.state.article.id];
+        else localProducts = [this.state.product.id];
         var products = JSON.stringify(localProducts);
         localStorage.setItem('products', products);
     },
 
     componentWillReceiveProps(nextProps) {
+        console.log(id);
+        console.log(nextProps);
         const { id: prevId } = this.props.params;
         const { id: nextId } = nextProps.params;
 
         if (prevId !== nextId) {
             this.setState({
-                article: articles.find(article => article.id === nextId)
+                product: products.find(product => product.id === nextId)
             });
         }
     },
 
     render() {
-        const { article } = this.state;
+        const { product } = this.state;
 
         return (
-            <div className='article'>
-                <p><b>{article.title}</b></p>
-                <p>Author: {article.author}</p>
-                <p>Price: {article.price}</p>
+            <div className='product'>
+                <p><b>{product.title}</b></p>
+                <p>Author: {product.author}</p>
+                <p>Price: {product.price}</p>
                 <hr />
-                <p>{article.body}</p>
+                <p>{product.body}</p>
                 <button onClick={this.handleAddClick}>Add to Cart</button>
             </div>
         );
     }
 });
 
-export default article;
+export default Product;

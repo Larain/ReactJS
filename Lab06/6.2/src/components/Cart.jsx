@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import MessagePreview from './MessagePreview.jsx';
+import ProductPreview from './ProductPreview.jsx';
 
-import articles1 from '../articles.json';
+import products1 from '../products.json';
 
-import './InboxPage.less';
+import './ProductList.less';
+import './Cart.less';
 
 const Cart = React.createClass({
 
@@ -18,32 +19,50 @@ const Cart = React.createClass({
         else{
             var fullProducts = [];
             for(var i =0; i <  localProducts.length; i++)
-                fullProducts.push(articles1.find(article => article.id === localProducts[i]));
+                fullProducts.push(products1.find(product => product.id === localProducts[i]));
             localProducts = fullProducts;
         }
         return {
-            articles: articles1,
+            allProducts: products1,
             products: localProducts
         };
     },
 
     handlePreviewClick(id) {
-        this.context.router.push(`/goods/${id}`);
+        this.context.router.push(`/product/${id}`);
+    },
+
+    handleDeleteClick(id) {
+        console.log(this.state.products);
+        var newProds = this.state.products.filter(function (product) {
+            return product.id !== id;
+        });
+
+        this.setState({ products: newProds });
+
+        var newLocalProducts = JSON.stringify(newProds);
+        localStorage.setItem('products', newLocalProducts);
     },
 
     render() {
+        const { onClick } = this.props;
+
         return (
             <div >
-                <div className='InboxPage'>
-                    <div className='messages'>
+                <div className='ProductList'>
+                    <div className='products'>
                         {
-                            this.state.products.map(article =>
-                                <MessagePreview
-                                    selected={false}
-                                    title={article.title}
-                                    author={article.author}
-                                    price={article.price}
-                                />
+                            this.state.products.map(product =>
+                                <div className="cart-item" key={product.id}>
+                                    <ProductPreview
+                                        key={product.id}
+                                        selected={false}
+                                        title={product.title}
+                                        author={product.author}
+                                        price={product.price}
+                                    />
+                                    <button className="btn btn-delete" onClick={this.handleDeleteClick.bind(null, product.id)}>Delete</button>
+                                </div>
                             )
                         }
                     </div>
